@@ -19,7 +19,6 @@ import com.nelioalves.cursomc.services.exceptions.FileException;
 @Service
 public class S3Service {
 
-	private Logger LOG = LoggerFactory.getLogger(S3Service.class);
 
 	@Autowired
 	private AmazonS3 s3client;
@@ -43,10 +42,7 @@ public class S3Service {
 		try {
 			ObjectMetadata meta = new ObjectMetadata();
 			meta.setContentType(contentType);
-
-			LOG.info("Iniciando Upload");
 			s3client.putObject(bucketName, fileName, is, meta);
-			LOG.info("Upload finalizado");
 
 			return s3client.getUrl(bucketName, fileName).toURI();
 		} catch (URISyntaxException e) {
