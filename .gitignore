@@ -23,3 +23,7 @@
 /nbdist/
 /.nb-gradle/
 /build/
+
+bfg-1.13.0.jar
+application.properties
+application-prod.properties
